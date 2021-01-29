@@ -43,7 +43,7 @@ public class CustomerAddress {
 	@ApiModelProperty(example = "14-20-F16 Baltimore", required = true, value = "Address Line 1")
 	@NotNull
 
-	@Pattern(regexp = "^[a-zA-Z0-9]{10,50}$")
+	@Pattern(regexp = "^[A-Za-z0-9 ]{1,50}$")
 	public String getAddressLine1() {
 		return addressLine1;
 	}
@@ -64,7 +64,7 @@ public class CustomerAddress {
 	 **/
 	@ApiModelProperty(example = "Near Harford RD", value = "Address Line 2")
 
-	@Pattern(regexp = "^[a-zA-Z0-9]{0,50}$")
+	@Pattern(regexp = "^[a-zA-Z0-9 ]{0,50}$")
 	public String getAddressLine2() {
 		return addressLine2;
 	}
@@ -85,7 +85,7 @@ public class CustomerAddress {
 	 **/
 	@ApiModelProperty(example = "Road No 4", value = "Street name of the customer's business address")
 
-	@Pattern(regexp = "^[a-zA-Z0-9]{5,50}$")
+	@Pattern(regexp = "^[a-zA-Z0-9 ]{0,50}$")
 	public String getStreet() {
 		return street;
 	}
@@ -107,6 +107,7 @@ public class CustomerAddress {
 	@ApiModelProperty(example = "27450", required = true, value = "Postal code of the customer's business address")
 	@NotNull
 
+	@Pattern(regexp = "^[0-9]{5}$")
 	public String getPostalCode() {
 		return postalCode;
 	}

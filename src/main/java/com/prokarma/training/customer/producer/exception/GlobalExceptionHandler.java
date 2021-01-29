@@ -23,6 +23,7 @@ import org.springframework.web.servlet.NoHandlerFoundException;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.prokarma.training.customer.producer.domain.ErrorResponse;
+import com.prokarma.training.customer.producer.util.ObjectMapperUtil;
 
 @ControllerAdvice
 public class GlobalExceptionHandler {
@@ -62,14 +63,14 @@ public class GlobalExceptionHandler {
 
 	@ExceptionHandler(MethodArgumentNotValidException.class)
 	public ResponseEntity<ErrorResponse> handleException(MethodArgumentNotValidException ex,
-			HttpServletRequest request) throws JsonProcessingException {
+			HttpServletRequest request) {
 		ErrorResponse errorResponse = prepareErrorResponse(ex);
 		LOG.error("MethodArgumentNotValidException : {}", errorResponse);
 		return new ResponseEntity<>(processFieldErrors(ex.getBindingResult().getFieldErrors(), errorResponse), HttpStatus.BAD_REQUEST);
 	}
 
 	private ErrorResponse processFieldErrors(List<FieldError> fieldErrors,
-			ErrorResponse errorResponse) throws JsonProcessingException {
+			ErrorResponse errorResponse) {
 
 		Map<String, TreeSet<String>> fieldValidationError = new TreeMap<>();
 		
@@ -84,7 +85,7 @@ public class GlobalExceptionHandler {
 		errorResponse.setStatus(ERROR_STATUS);
 		FieldErrorResponse fieldErrorResponse = new FieldErrorResponse();
 		fieldErrorResponse.setModelState(fieldValidationError);
-		errorResponse.setMessage(new ObjectMapper().writeValueAsString(fieldErrorResponse));
+		errorResponse.setMessage(ObjectMapperUtil.returnJsonFromObject(fieldErrorResponse));
 
 		return errorResponse;
 	}

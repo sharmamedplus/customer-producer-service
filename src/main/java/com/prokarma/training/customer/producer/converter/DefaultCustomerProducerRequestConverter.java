@@ -6,6 +6,7 @@ import org.springframework.stereotype.Component;
 import com.prokarma.training.customer.producer.constant.CustomerMaskConstant;
 import com.prokarma.training.customer.producer.domain.CustomerRequest;
 import com.prokarma.training.customer.producer.kafka.domain.KafkaCustomerRequest;
+import com.prokarma.training.customer.producer.util.ObjectMapperUtil;
 
 @Component
 public class DefaultCustomerProducerRequestConverter
@@ -23,7 +24,7 @@ public class DefaultCustomerProducerRequestConverter
 		kafkaCustomerRequest.setBirthdate(customerRequest.getBirthdate());
 		kafkaCustomerRequest.setCountry(customerRequest.getCountry());
 		kafkaCustomerRequest.setCountryCode(customerRequest.getCountryCode());
-		kafkaCustomerRequest.setAddress(customerRequest.getAddress().toString());
+		kafkaCustomerRequest.setAddress(ObjectMapperUtil.returnJsonFromObject(customerRequest.getAddress()));
 		kafkaCustomerRequest.setCustomerStatus(String.valueOf(customerRequest.getCustomerStatus().name()));
 		return kafkaCustomerRequest;
 	}

@@ -84,7 +84,7 @@ public class CustomerRequest {
 	@ApiModelProperty(example = "Vijay Kumar", required = true, value = "First name")
 	@NotNull
 
-	@Pattern(regexp = "^[a-zA-Z0-9]{10,50}$")
+	@Pattern(regexp = "^[a-zA-Z0-9 ]{10,50}$")
 	public String getFirstName() {
 		return firstName;
 	}
@@ -106,7 +106,7 @@ public class CustomerRequest {
 	@ApiModelProperty(example = "Sharma1234", required = true, value = "Last name")
 	@NotNull
 
-	@Pattern(regexp = "^[a-zA-Z0-9]{10,50}$")
+	@Pattern(regexp = "^[a-zA-Z0-9 ]{10,50}$")
 	public String getLastName() {
 		return lastName;
 	}
