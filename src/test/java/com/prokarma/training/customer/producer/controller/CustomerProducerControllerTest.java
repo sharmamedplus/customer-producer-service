@@ -55,13 +55,13 @@ class CustomerProducerControllerTest {
 	void testPublishCustomerDataWhenWrongUrlProvidedThenReturn404StatusCode() throws Exception {
 		mockMvc.perform(post("/customer/publish/v1").contentType(MediaType.APPLICATION_JSON_VALUE)
 				.content(ObjectMapperUtil.returnJsonFromObject(TestDataHelper.getCustomerData()))
-				.headers(buildHttpRequestHeaders())).andExpect(status().is(HttpStatus.BAD_REQUEST.value()));
+				.headers(buildHttpRequestHeaders())).andExpect(status().is(HttpStatus.NOT_FOUND.value()));
 	}
 
 	private HttpHeaders buildHttpRequestHeaders() {
 		HttpHeaders httpHeaders = new HttpHeaders();
 		httpHeaders.set("Content-Type", "application/json");
-		httpHeaders.set("Authorization", "bearer 189e70aa-8563-4d74-94e9-7f5ac86d217e");
+		httpHeaders.set("Authorization", "bearer 98f70d7e-ec69-48b3-8f4f-018756f23709");
 		httpHeaders.set("Activity-Id", "customer-publish-activity");
 		httpHeaders.set("Transaction-Id", "customer-transaction");
 		return httpHeaders;
