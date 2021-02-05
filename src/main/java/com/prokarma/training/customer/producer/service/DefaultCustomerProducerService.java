@@ -8,11 +8,11 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 
+import com.prokarma.training.customer.kafka.domain.KafkaCustomerRequest;
 import com.prokarma.training.customer.producer.converter.DefaultCustomerProducerRequestConverter;
 import com.prokarma.training.customer.producer.domain.CustomerRequest;
 import com.prokarma.training.customer.producer.domain.PublisherResponse;
 import com.prokarma.training.customer.producer.exception.ApplicationRuntimeException;
-import com.prokarma.training.customer.producer.kafka.domain.KafkaCustomerRequest;
 
 @Service
 public class DefaultCustomerProducerService implements CustomerProducerService {

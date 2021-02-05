@@ -8,7 +8,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import com.prokarma.training.customer.producer.kafka.domain.KafkaCustomerRequest;
+import com.prokarma.training.customer.kafka.domain.KafkaCustomerRequest;
 import com.prokarma.training.customer.producer.test.helper.TestDataHelper;
 
 @ExtendWith(MockitoExtension.class)

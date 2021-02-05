@@ -3,9 +3,9 @@ package com.prokarma.training.customer.producer.converter;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Component;
 
+import com.prokarma.training.customer.kafka.domain.KafkaCustomerRequest;
 import com.prokarma.training.customer.producer.constant.CustomerMaskConstant;
 import com.prokarma.training.customer.producer.domain.CustomerRequest;
-import com.prokarma.training.customer.producer.kafka.domain.KafkaCustomerRequest;
 import com.prokarma.training.customer.producer.util.ObjectMapperUtil;
 
 @Component

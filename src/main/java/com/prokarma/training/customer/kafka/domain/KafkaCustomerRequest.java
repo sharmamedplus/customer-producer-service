@@ -1,6 +1,4 @@
-package com.prokarma.training.customer.producer.kafka.domain;
-
-import com.prokarma.training.customer.producer.domain.CustomerAddress;
+package com.prokarma.training.customer.kafka.domain;
 
 public class KafkaCustomerRequest {
 
